@@ -8,17 +8,14 @@ Created on Mon May 15 00:30:46 2023
 
 
 import subprocess
-def install_package(package_name):
-    try:
-        subprocess.check_call(['pip', 'install', package_name])
-    except subprocess.CalledProcessError as e:
-        print(f"Error installing {package_name}: {e}")
-        
+# Define the command to run the script
+command = ['python', 'C:/Users/91790/OneDrive/Desktop/code/package_installer.py']
+# Run the command to execute the script
+subprocess.run(command, check=True)
 
 
-install_package('yfinance')
+
 import yfinance as yf
-import pandas as pd
 import numpy as np
 import pandas as pd
 import config as cf
