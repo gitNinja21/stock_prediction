@@ -14,7 +14,8 @@ from statsmodels.tsa.ar_model import ar_select_order
 
 class data_profiling(nifty_data_loader):
     def __init__(self,**kwargs):
-        self.data=super().__init__(**kwargs)
+        super().__init__(**kwargs)
+        self.data=self.getData()
         self.lag=kwargs['lag']
        
         
@@ -68,6 +69,7 @@ class data_profiling(nifty_data_loader):
         '''
         log_return= np.log(self.data['Close'] /self.data['Close'].shift(1))
         search = ar_select_order(endog=log_return, maxlag=self.lag)
+        print(search)
         return search.ar_lags
 
 
