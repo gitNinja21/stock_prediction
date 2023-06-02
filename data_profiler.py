@@ -68,7 +68,7 @@ class data_profiling(nifty_data_loader):
 
         '''
         log_return= np.log(self.data['Close'] /self.data['Close'].shift(1))
-        search = ar_select_order(endog=log_return, maxlag=self.lag)
+        search = ar_select_order(endog=log_return.dropna(), maxlag=self.lag)
         print(search)
         return search.ar_lags
 
