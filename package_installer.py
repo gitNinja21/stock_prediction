@@ -13,7 +13,7 @@ required_packages = ['numpy', 'pandas', 'statsmodels','yfinance']
 for package in required_packages:
     if package=='numpy':
         package_name=package
-        package_version=1.8.0
+        package_version=1.18
         command = ['pip', 'install', f'{package_name}=={package_version}']
         subprocess.run(command, check=True)
     else:
