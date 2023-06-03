@@ -20,6 +20,5 @@ for package in required_packages:
         subprocess.run(['pip', 'install', '--upgrade', package], check=True)
 
         
-        package_name = 'package_name'
-package_version = '1.2.3'
+ 
 
