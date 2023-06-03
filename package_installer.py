@@ -12,6 +12,14 @@ required_packages = ['numpy', 'pandas', 'statsmodels','yfinance']
 # Iterate over the packages and install or upgrade them
 for package in required_packages:
     if package=='numpy':
-        pip install numpy==1.8.0
+        package_name=package
+        package_version=1.8.0
+        command = ['pip', 'install', f'{package_name}=={package_version}']
+        subprocess.run(command, check=True)
     else:
         subprocess.run(['pip', 'install', '--upgrade', package], check=True)
+
+        
+        package_name = 'package_name'
+package_version = '1.2.3'
+
