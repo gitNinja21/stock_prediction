@@ -8,6 +8,7 @@ Created on Mon May 15 02:30:00 2023
 import numpy as np
 from stock_data_loader import nifty_data_loader
 from statsmodels.tsa.ar_model import ar_select_order
+from statsmodels.tsa.ar_model import AutoReg
 
 
 
@@ -68,9 +69,12 @@ class data_profiling(nifty_data_loader):
 
         '''
         log_return= np.log(self.data['Close'] /self.data['Close'].shift(1))
-        search = ar_select_order(endog=log_return.dropna(), maxlag=self.lag)
-        print(search)
-        return search.ar_lags
+        target=log_return.dropna().values
+        ar_model = AutoReg(target, lags=self.lag).fit()
+        sig_lags=np.where(ar_model.pvalues < 0.10)
+        
+        return sig_lags        
+
 
 
         
