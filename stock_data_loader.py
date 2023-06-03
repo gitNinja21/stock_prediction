@@ -6,12 +6,13 @@ Created on Mon May 15 00:30:46 2023
 """
 
 
-
+'''
 import subprocess
 # Define the command to run the script
 command = ['python', 'package_installer.py']
 # Run the command to execute the script
 subprocess.run(command, check=True)
+'''
 
 
 
